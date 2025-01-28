@@ -1,0 +1,27 @@
+<div class="ze-nav mobile-navigation">
+  <button class="ze-menu-btn">
+    <i class="ri-menu-unfold-line"></i>
+    Menu
+  </button>
+  <div class="ze-menu-drawer">
+    <div class="ze-menu-header">
+      <h3 class="ze-header-main-heading">{{ section.settings.main_heading }}</h3>
+      <span class="ze-menu-close"> <i class="ri-close-fill"></i> </span>
+    </div>
+
+    <div class="ze-drawer-content">
+      {% for menu in section.blocks %}
+        <div class="ze-menu-col">
+          <h3 class="ze-header-menu-heading">{{ menu.settings.menu_heading }}</h3>
+          <ul class="ze-header-menu-links">
+            {% for link in menu.settings.menu_link.links %}
+              <li class="ze-header-menu-link">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

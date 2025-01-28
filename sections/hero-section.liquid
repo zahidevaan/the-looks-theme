@@ -1,19 +1,25 @@
-{{ 'section-hero.css' | asset_url | stylesheet_tag }}
-
-<div class="container-fluid hero-contentainer">
-  <div class="hero-background">
-    {% if section.settings.desktop_background != blank %}
-      {{ section.settings.desktop_background | image_url: width: 'master', height: 'master' | image_tag }}
+<div class="w-screen h-screen bg-black overflow-x-hidden">
+  <div class="hero-backgrounds h-full w-full">
+    {%- if section.settings.desktop_background != blank -%}
+      <img
+        class="desktop__image hidden md:block"
+        src="{{ section.settings.desktop_background | image_url }}"
+        height=""
+        width=""
+        alt=""
+      >
     {%- else -%}
-      {{ 'hero-apparel-1' | placeholder_svg_tag }}
-    {% endif %}
-  </div>
-  <div class="container hero-contents">
-    <div class="row">
-      <div class="col hero-contents-col">
-        <h2>Welcome</h2>
-      </div>
-    </div>
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg hidden md:block' }}
+    {%- endif -%}
+    {%- if section.settings.mobile_background != blank -%}
+      <img
+        class="mobile__image md:hidden h-screen w-full object-cover"
+        src="{{ section.settings.mobile_background | image_url }}"
+        height=""
+        width=""
+        alt=""
+      >
+    {%- endif -%}
   </div>
 </div>
 
@@ -26,7 +32,12 @@
     {
       "type": "image_picker",
       "id": "desktop_background",
-      "label": "Desktop Background"
+      "label": "Desktop Background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background",
+      "label": "Mobile background image"
     }
   ],
   "presets": [
