@@ -11,12 +11,25 @@
   "sections": {
     "hero": {
       "type": "hero-section",
-      "settings": {}
+      "settings": {
+        "heading": "Welcome",
+        "paragraph": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt excepturi aspernatur expedita deleniti iste vitae eum consequuntur adipisci quia porro molestiae reprehenderit in praesentium dignissimos? Et, architecto amet? Magnam?</p>",
+        "button_text": "Shop Now",
+        "button__url": ""
+      }
     },
     "featured-collection": {
       "type": "featured-collection",
-      "settings": {}
+      "settings": {
+        "section__heading": "Featured Collection",
+        "collections": [
+          "zen"
+        ]
+      }
     }
   },
-  "order": ["hero", "featured-collection"]
+  "order": [
+    "hero",
+    "featured-collection"
+  ]
 }
