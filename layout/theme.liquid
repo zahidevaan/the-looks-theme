@@ -35,12 +35,12 @@
   </head>
 
   <body>
+    {%- sections 'header-group' -%}
     <main role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     {%- section 'cart-drawer' -%}
-    {%- sections 'header-group' -%}
 
     <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
