@@ -78,10 +78,31 @@
   "name": "ZE Main Header",
   "settings": [
     {
+      "type": "select",
+      "id": "toggle_logo",
+      "label": "Show Name or Logo",
+      "default": "text",
+      "options": [
+        {
+          "label": "Logo",
+          "value": "logo"
+        },
+        {
+          "label": "Text",
+          "value": "text"
+        }
+      ]
+    },
+    {
       "type": "text",
       "id": "ze_logo_text",
       "label": "Logo Text",
       "default": "My Shopify Store"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "logo"
     },
     {
       "type": "inline_richtext",
