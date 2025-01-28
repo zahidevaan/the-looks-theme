@@ -23,7 +23,8 @@
       "settings": {
         "section__heading": "Featured Collection",
         "collections": [
-          "zen"
+          "zen",
+          "frontpage"
         ]
       }
     }
