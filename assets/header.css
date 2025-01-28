@@ -11,6 +11,8 @@ body {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   width: 100%;
+  position: relative;
+  z-index: 99999;
 }
 
 .ze-container {

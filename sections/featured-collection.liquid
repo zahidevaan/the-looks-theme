@@ -1,7 +1,29 @@
-<div class="grid grid-cols-4">
-  {%- for collection in section.settings.collections -%}
-    {%- render 'colllection-card-snippet', collection: collection -%}
-  {%- endfor -%}
+<div class="section-featured-collection py-3 px-3 lg:py-6">
+  <div class="featured-collection-header py-3 md:py-3">
+    <h1 class="py-3 text-2xl text-center font-bold lg:text-4xl">{{ section.settings.section__heading }}</h1>
+  </div>
+  <div class="container mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 gap-y-16">
+      {%- if section.settings.collections.size > 0 -%}
+        {%- for collection in section.settings.collections -%}
+          {%- render 'colllection-card-snippet', collection: collection -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for item in (1..4) -%}
+          <div class="card">
+            <div class="card-meadia">
+              {{ 'collection-apparel-1' | placeholder_svg_tag: 'placeholder-svg aspect-[3/4] object-contain' }}
+            </div>
+            <div class="card-content padding-top">
+              <h2 class="text-md py-2">Collection title {{ forloop.index }}</h2>
+              <div class="text-sm text-gray-700">Collection descriptions</div>
+              <a class="pt-4 inline-block" href="{{ collection.url }}">Shop <i class="ri-arrow-right-s-line"></i></a>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
 </div>
 
 {% schema %}

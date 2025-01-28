@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-meadia">
-    <img src="{{ collection.featured_image | image_url: width: 'master', height: master}}" width="" height="" alt="">
+    <img class="aspect-[3/4]" src="{{ collection.featured_image | image_url }}" width="" height="" alt="">
   </div>
-  <div class="card-content">
-    <h2>{{ collection.title | default: 'Collection title' }}</h2>
-    <p>
-      {{ collection.description }}
-    </p>
-    <a href="">Shop <i class="ri-arrow-right-s-line"></i></a>
+  <div class="card-content padding-top">
+    <h2 class="text-md text-padding">{{ collection.title | default: 'Collection title' }}</h2>
+    <div class="text-sm text-gray-700">
+      {{ collection.description | default: 'Collection descriptions' }}
+    </div>
+    <a class="text-padding" href="{{ collection.url }}">Shop <i class="ri-arrow-right-s-line"></i></a>
   </div>
 </div>
