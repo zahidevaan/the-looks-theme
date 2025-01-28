@@ -1,5 +1,11 @@
 {
-  "name": "t:section.header.name",
+  "name": "Header",
   "type": "header",
-  "sections": {}
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": []
 }

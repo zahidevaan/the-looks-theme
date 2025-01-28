@@ -20,6 +20,15 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
+    <script src="{{ 'jquery.min.js' | asset_url }}" defer="defer"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    >
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
   </head>
 
@@ -29,5 +38,7 @@
     </main>
 
     <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
