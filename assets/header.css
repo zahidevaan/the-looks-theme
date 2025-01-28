@@ -128,234 +128,234 @@ li.ze-header-menu-link a {
 }
 /* Cart Drawer */
 /* .ze-quantity-form {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ze-quantity-input {
+  width: 50px;
+  text-align: center;
+}
+
+.ze-update-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.ze-update-btn:hover {
+  background-color: #45a049;
+}
+
+.ze-remove-form {
+  display: inline-block;
+}
+
+
+.ze-cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -200%;
+  max-width: 480px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.ze-cart-drawer.open {
+  right: 0;
+}
+
+.ze-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.ze-cart-close {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.ze-cart-content {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 100%;
+  height: 90%;
+  box-sizing: border-box;
+}
+
+.ze-cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-bottom: 1rem;
+  padding: 15px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.ze-cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.ze-cart-details p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 0;
+}
+.ze-cart-footer {
+  padding: 0 15px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ze-cart-checkout {
+  background: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 0;
+  padding: 15px 0;
+  width: 100%;
+  transition: background 0.3s ease-in-out;
+}
+.ze-cart-checkout:hover {
+  background: green;
+}
+
+p.ze-cart-total-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  padding: 15px 0;
+}
+
+span.ze-total-price-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+}
+
+span.ze-total-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.ze-cart-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .ze-quantity-input {
-    width: 50px;
-    text-align: center;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .ze-update-btn {
-    background-color: #000;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .ze-update-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .ze-remove-form {
-    display: inline-block;
-  }
-  
-  
-  .ze-cart-drawer {
-    position: fixed;
-    top: 0;
-    right: -200%;
-    max-width: 480px;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    transition: right 0.3s ease-in-out;
-    z-index: 999;
-  }
-  
-  .ze-cart-drawer.open {
-    right: 0;
-  }
-  
-  .ze-cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .ze-cart-close {
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  
-  .ze-cart-content {
-    padding: 0px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    max-height: 100%;
-    height: 90%;
-    box-sizing: border-box;
-  }
-  
-  .ze-cart-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 10px;
-    margin-bottom: 1rem;
-    padding: 15px 0;
-    border-bottom: 1px solid lightgray;
-  }
-  
-  .ze-cart-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-  }
-  
-  .ze-cart-details p {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 8px 0;
-  }
-  .ze-cart-footer {
-    padding: 0 15px;
-    border-top: 1px solid #ddd;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .ze-cart-checkout {
-    background: #333;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 4px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 0;
-    padding: 15px 0;
-    width: 100%;
-    transition: background 0.3s ease-in-out;
-  }
-  .ze-cart-checkout:hover {
-    background: green;
-  }
-  
-  p.ze-cart-total-price-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 22px;
-    padding: 15px 0;
-  }
-  
-  span.ze-total-price-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: #000;
-    text-transform: uppercase;
-  }
-  
-  span.ze-total-price {
-    font-size: 22px;
-    font-weight: 700;
-    color: #000;
-  }
-  
-  .ze-cart-loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .loader {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #000;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  .ze-quantity-input {
-    width: 50px;
-    text-align: center;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    text-align: center;
-    padding: 5px;
-    font-size: 18px;
-  }
-  
-  button.ze-quantity-minus,
-  button.ze-quantity-plus {
-    padding: 5px;
-    background: none;
-    border: none;
-    font-size: 22px;
-    line-height: 22px;
-    cursor: pointer;
-    color: #000;
-    font-weight: 700;
-  }
-  .ze-quantity-form {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .ze-update-btn {
-    background-color: #000;
-    color: #fff;
-    border: none !important;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background 0.4s ease-in-out;
-  }
-  .ze-update-btn:hover {
-    background-color: red;
-  }
-  .ze-form-input-row {
-    border: 1px solid lightgray;
-    padding: 0;
-  }
-  .announcement-bar__message {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  .ze-empty-cart {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    color: lightgray;
-  } 
-  
-  
-  */
+}
+.ze-quantity-input {
+  width: 50px;
+  text-align: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-align: center;
+  padding: 5px;
+  font-size: 18px;
+}
+
+button.ze-quantity-minus,
+button.ze-quantity-plus {
+  padding: 5px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 22px;
+  cursor: pointer;
+  color: #000;
+  font-weight: 700;
+}
+.ze-quantity-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.ze-update-btn {
+  background-color: #000;
+  color: #fff;
+  border: none !important;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.4s ease-in-out;
+}
+.ze-update-btn:hover {
+  background-color: red;
+}
+.ze-form-input-row {
+  border: 1px solid lightgray;
+  padding: 0;
+}
+.announcement-bar__message {
+  font-size: 20px;
+  font-weight: 600;
+}
+.ze-empty-cart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: lightgray;
+} 
+
+
+*/
 
 .icon-arrow {
   font-size: 22px;
