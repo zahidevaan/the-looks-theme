@@ -37,6 +37,7 @@
       {{ content_for_layout }}
     </main>
 
+    {%- section 'cart-drawer' -%}
     <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
