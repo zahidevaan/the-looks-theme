@@ -1,25 +1,56 @@
-<div class="w-screen h-screen bg-black overflow-x-hidden">
-  <div class="hero-backgrounds h-full w-full">
+{{ 'section-hero.css' | asset_url | stylesheet_tag: preload: true }}
+
+<div class="hero-section h-[80vh] w-full overflow-hidden relative">
+  <div class="hero-baackgrounds h-[80vh] w-full absolute top-0 left-0">
     {%- if section.settings.desktop_background != blank -%}
       <img
-        class="desktop__image hidden md:block"
+        class="desktop__image w-full h-full object-cover object-center  hidden md:block opacity-85"
         src="{{ section.settings.desktop_background | image_url }}"
         height=""
         width=""
         alt=""
       >
     {%- else -%}
-      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg hidden md:block' }}
-    {%- endif -%}
-    {%- if section.settings.mobile_background != blank -%}
       <img
-        class="mobile__image md:hidden h-screen w-full object-cover"
-        src="{{ section.settings.mobile_background | image_url }}"
+        class="desktop__image w-full h-full object-cover object-center  hidden md:block opacity-85"
+        src="https://images.pexels.com/photos/29775946/pexels-photo-29775946/free-photo-of-artistic-expression-of-three-women-in-dark.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         height=""
         width=""
         alt=""
       >
     {%- endif -%}
+    {%- if section.settings.mobile_background != blank -%}
+      <img
+        class="mobile__image md:hidden h-full w-full object-cover object-center"
+        src="{{ section.settings.mobile_background | image_url }}"
+        height=""
+        width=""
+        alt=""
+      >
+    {%- else -%}
+      <img
+        class="mobile__image md:hidden w-full h-full object-cover object-center"
+        src="https://images.pexels.com/photos/3917675/pexels-photo-3917675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        height=""
+        width=""
+        alt=""
+      >
+    {%- endif -%}
+  </div>
+
+  <div class="hero-contents-wrapper">
+    <div class="hero-contents">
+      <h1 class="text-4xl text-white lg:text-6xl font-semibold">{{ section.settings.heading }}</h1>
+      <div class="text-white text-lg text-center lg:text-xl lg:gap-3">
+        {{ section.settings.paragraph }}
+      </div>
+      <a
+        href="{{ section.settings.button__url }}"
+        class="hero-button text-black bg-orange-50 uppercase rounded-full text-md font-semibold hover:bg-orange-200 transition-colors duration-300"
+      >
+        {{- section.settings.button_text }}
+      </a>
+    </div>
   </div>
 </div>
 
@@ -38,6 +69,29 @@
       "type": "image_picker",
       "id": "mobile_background",
       "label": "Mobile background image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph",
+      "default": " <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt excepturi aspernatur expedita deleniti iste vitae eum consequuntur adipisci quia porro molestiae reprehenderit in praesentium dignissimos? Et, architecto amet? Magnam?</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button__url",
+      "label": "Button URL"
     }
   ],
   "presets": [
