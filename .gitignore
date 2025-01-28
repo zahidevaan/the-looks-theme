@@ -11,3 +11,4 @@ Thumbs.db
 /.idea/blank-shopify-theme.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+/node_modules
