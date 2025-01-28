@@ -9,10 +9,14 @@
  */
 {
   "sections": {
-    "main": {
+    "hero": {
       "type": "hero-section",
+      "settings": {}
+    },
+    "featured-collection": {
+      "type": "featured-collection",
       "settings": {}
     }
   },
-  "order": ["main"]
+  "order": ["hero", "featured-collection"]
 }

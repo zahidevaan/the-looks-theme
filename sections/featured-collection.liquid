@@ -1,0 +1,33 @@
+<div class="grid grid-cols-4">
+  {%- for collection in section.settings.collections -%}
+    {%- render 'colllection-card-snippet', collection: collection -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "tag": "section",
+  "class": "featured-collection",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section__heading",
+      "label": "Section Heading",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collections",
+      "limit": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

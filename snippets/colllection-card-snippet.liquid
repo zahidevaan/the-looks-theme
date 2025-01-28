@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-meadia">
+    <img src="{{ collection.featured_image | image_url: width: 'master', height: master}}" width="" height="" alt="">
+  </div>
+  <div class="card-content">
+    <h2>{{ collection.title | default: 'Collection title' }}</h2>
+    <p>
+      {{ collection.description }}
+    </p>
+    <a href="">Shop <i class="ri-arrow-right-s-line"></i></a>
+  </div>
+</div>
