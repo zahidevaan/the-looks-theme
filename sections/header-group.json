@@ -26,10 +26,12 @@
         "menu_8PJTdW"
       ],
       "settings": {
+        "toggle_logo": "logo",
         "ze_logo_text": "The Looks Theme",
+        "logo": "shopify://shop_images/Logo_22222.jpg",
         "main_heading": "Main Menu",
         "collection_heading": "Popular Products",
-        "collection": ""
+        "collection": "zen"
       }
     }
   },
