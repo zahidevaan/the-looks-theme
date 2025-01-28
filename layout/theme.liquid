@@ -30,6 +30,7 @@
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     >
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+    {{ 'header.css' | asset_url | stylesheet_tag }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
   </head>
 
@@ -39,6 +40,7 @@
     </main>
 
     {%- section 'cart-drawer' -%}
+    {%- sections 'header-group' -%}
 
     <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
