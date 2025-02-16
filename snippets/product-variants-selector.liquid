@@ -1,0 +1,41 @@
+{%- unless product.has_only_default_variant -%}
+  <div class="product-variants">
+    <div class="product-options">
+      {% for option in product.options_with_values %}
+        <strong style="display: block; margin: 8px 0; font-size: 16px; font-weight: bold;">
+          {{ option.name }}
+        </strong>
+        <select class="variant-group border py-1 px-2 cursor-pointer">
+          {%- for value in option.values -%}
+            <option
+              id="option-{{ option.name | downcase | replace: ' ', '_' }}-{{ forloop.index }}"
+              name="{{ option.name | downcase | replace: ' ', '_' }}"
+              value="{{ value.name }}"
+              {%- if value.selected -%}
+                checked
+              {%- endif -%}
+            >
+              {{ value.name }}
+            </option>
+          {%- endfor -%}
+        </select>
+      {% endfor %}
+    </div>
+    <select
+      class="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant }}"
+    >
+      {%- for variant in product.variants -%}
+        <option value="{{ variant.id }}">{{ variant.title }}</option>
+      {%- endfor -%}
+    </select>
+  </div>
+{%- else -%}
+  <input
+    type="hidden"
+    name="id"
+    value="{{ product.selected_or_first_available_variant.id }}"
+  >
+{%- endunless -%}
+<script src="{{ 'product-variants-selector.js' | asset_url }}" defer="defer"></script>

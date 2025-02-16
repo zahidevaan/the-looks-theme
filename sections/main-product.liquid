@@ -10,6 +10,8 @@
           {%- form 'product', product, id: from_id, class: 'w-full' -%}
             {%- for block in section.blocks -%}
               {%- case block.type -%}
+                {% when '@app' %}
+                  {% render block %}
                 {%- when 'title' -%}
                   <h2 class="text-2xl font-bold my-3">{{ product.title }}</h2>
                 {%- when 'vendor' -%}
@@ -17,20 +19,31 @@
                 {%- when 'quantity' -%}
                   {%- render 'product-quantity-selector-snippet', product: product -%}
                 {%- when 'variants' -%}
-                  {%- render 'product-variants', product: product -%}
+                  {%- if block.settings.variant_type == 'pills' -%}
+                    {%- render 'product-variants-pills', product: product -%}
+                  {%- endif -%}
+                  {%- if block.settings.variant_type == 'selector' -%}
+                    {%- render 'product-variants-selector', product: product -%}
+                  {%- endif -%}
                 {%- when 'price' -%}
                   <h3 class="text-md font-light my-3">{{ product.price | money }}</h3>
                 {%- when 'sku' -%}
                   <span class="text-md font-light my-3">{{ product.sku }}</span>
                 {%- when 'custom' -%}
                   <div class="text-md font-light my-3">{{ block.settings.liquid }}</div>
+                {% when 'buttons' %}
+                  <button class="block w-full border my-3 py-2 px-3 cursor-pointer bg-black text-white hover:bg-amber-100 hover:text-black transition duration-300">
+                    Add to cart
+                  </button>
+                  {%- if block.settings.enable_dynamic_button -%}
+                    <div class="w-full my-3">
+                      {{ form | payment_button }}
+                    </div>
+                  {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
 
             {{ form | payment_terms }}
-            <button class="block border my-3 py-2 px-3 cursor-pointer bg-black text-white hover:bg-amber-100 hover:text-black transition duration-300">
-              Add to cart
-            </button>
           {%- endform -%}
         </div>
       </div>
@@ -46,6 +59,9 @@
   "class": "main-product-wrapper",
   "settings": [],
   "blocks": [
+    {
+      "type": "@app"
+    },
     {
       "name": "Price",
       "type": "price",
@@ -80,7 +96,24 @@
       "type": "variants",
       "name": "Variants",
       "limit": 1,
-      "settings": []
+      "settings": [
+        {
+          "type": "select",
+          "id": "variant_type",
+          "label": "Variant Type",
+          "options": [
+            {
+              "value": "pills",
+              "label": "Pills"
+            },
+            {
+              "value": "selector",
+              "label": "Selector"
+            }
+          ],
+          "default": "pills"
+        }
+      ]
     },
     {
       "type": "custom",
@@ -97,6 +130,18 @@
       "name": "SKU",
       "type": "sku",
       "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_dynamic_button",
+          "label": "Enable Dynamic Payment",
+          "default": true
+        }
+      ]
     }
   ],
   "presets": [

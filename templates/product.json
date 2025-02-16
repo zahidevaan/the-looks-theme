@@ -26,16 +26,31 @@
           "type": "price",
           "settings": {}
         },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "variant_type": "pills"
+          }
+        },
         "quantity": {
           "type": "quantity",
           "settings": {}
         },
-        "variants": {
-          "type": "variants",
-          "settings": {}
+        "buttons_yrMgqE": {
+          "type": "buttons",
+          "settings": {
+            "enable_dynamic_button": true
+          }
         }
       },
-      "block_order": ["vendor", "title", "price", "quantity", "variants"],
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variants",
+        "quantity",
+        "buttons_yrMgqE"
+      ],
       "settings": {}
     }
   },

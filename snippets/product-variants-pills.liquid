@@ -1,0 +1,45 @@
+{{ 'product-variant.css' | asset_url | stylesheet_tag: preload: true }}
+
+{%- unless product.has_only_default_variant -%}
+  <div class="product-variants">
+    <div class="product-options">
+      {% for option in product.options_with_values %}
+        <strong style="display: block; margin-bottom: 8px; font-size: 16px; font-weight: bold;">
+          {{ option.name }}
+        </strong>
+        <div class="variant-group">
+          {%- for value in option.values -%}
+            <input
+              type="radio"
+              id="option-{{ option.name | downcase | replace: ' ', '_' }}-{{ forloop.index }}"
+              name="{{ option.name | downcase | replace: ' ', '_' }}"
+              value="{{ value.name }}"
+              {%- if value.selected -%}
+                checked
+              {%- endif -%}
+            >
+            <label for="option-{{ option.name | downcase | replace: ' ', '_' }}-{{ forloop.index }}">
+              {{ value.name }}
+            </label>
+          {%- endfor -%}
+        </div>
+      {% endfor %}
+    </div>
+    <select
+      class="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant }}"
+    >
+      {%- for variant in product.variants -%}
+        <option value="{{ variant.id }}">{{ variant.title }}</option>
+      {%- endfor -%}
+    </select>
+  </div>
+{%- else -%}
+  <input
+    type="hidden"
+    name="id"
+    value="{{ product.selected_or_first_available_variant.id }}"
+  >
+{%- endunless -%}
+<script src="{{ 'product-variants-pills.js' | asset_url }} defer=" defer></script>
