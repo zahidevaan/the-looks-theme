@@ -1,0 +1,3 @@
+{%- for product in collection.products -%}
+  <h2>{{ product.title | link_to: product.url }}</h2>
+{%- endfor -%}
