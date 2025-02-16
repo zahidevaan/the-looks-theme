@@ -1,21 +1,113 @@
 <div class="main-product">
-  <div class="page-width">
-    <div class="main-product-row">
+  <div class="container mx-auto p-4">
+    <div class="grid gap-10 grid-cols-1 lg:grid-cols-2">
       <div class="main-product-media-col">
-        <h2>Product media col</h2>
+        <img src="{{ product.featured_image | image_url }}" width="" height="" alt="{{ product.title }} image">
       </div>
       <div class="main-product-content-col">
-        <h2>product contents col</h2>
+        <div class="w-full flex flex-col items-start justify-center gap-4">
+          {%- assign from_id = 'product-form-' | append: section.id -%}
+          {%- form 'product', product, id: from_id, class: 'w-full' -%}
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'title' -%}
+                  <h2 class="text-2xl font-bold my-3">{{ product.title }}</h2>
+                {%- when 'vendor' -%}
+                  <h2 class="text-md font-light my-3">{{ block.settings.vendor }}</h2>
+                {%- when 'quantity' -%}
+                  {%- render 'product-quantity-selector-snippet', product: product -%}
+                {%- when 'variants' -%}
+                  {%- render 'product-variants', product: product -%}
+                {%- when 'price' -%}
+                  <h3 class="text-md font-light my-3">{{ product.price | money }}</h3>
+                {%- when 'sku' -%}
+                  <span class="text-md font-light my-3">{{ product.sku }}</span>
+                {%- when 'custom' -%}
+                  <div class="text-md font-light my-3">{{ block.settings.liquid }}</div>
+              {%- endcase -%}
+            {%- endfor -%}
+
+            {{ form | payment_terms }}
+            <button class="block border my-3 py-2 px-3 cursor-pointer bg-black text-white hover:bg-amber-100 hover:text-black transition duration-300">
+              Add to cart
+            </button>
+          {%- endform -%}
+        </div>
       </div>
     </div>
   </div>
 </div>
-
+<script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'main-product-slider.js' | asset_url }}" defer="defer"></script>
 {% schema %}
 {
   "name": "Main Product",
   "tag": "section",
   "class": "main-product-wrapper",
-  "settings": []
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Price",
+      "type": "price",
+      "limit": 1
+    },
+    {
+      "name": "Title",
+      "type": "title",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "name": "Vendor",
+      "type": "vendor",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "vendor",
+          "label": "Vendor",
+          "default": "{{ product.vendor }}"
+        }
+      ]
+    },
+    {
+      "type": "quantity",
+      "name": "Quantity",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "variants",
+      "name": "Variants",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "custom",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid Code"
+        }
+      ]
+    },
+    {
+      "name": "SKU",
+      "type": "sku",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "main-product",
+      "blocks": [
+        {
+          "type": "title"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}

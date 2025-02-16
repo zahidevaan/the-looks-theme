@@ -11,10 +11,33 @@
   "sections": {
     "main": {
       "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {
+            "vendor": "{{ product.vendor }}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity": {
+          "type": "quantity",
+          "settings": {}
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {}
+        }
+      },
+      "block_order": ["vendor", "title", "price", "quantity", "variants"],
       "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

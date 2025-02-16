@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-meadia">
+    <img class="aspect-[3/4] object-cover" src="{{ product.featured_image | image_url }}" width="" height="" alt="">
+  </div>
+  <div class="card-content my-3 flex flex-col gap-2">
+    <h2 class="text-md">{{ product.title | default: 'product title' | link_to: product.url }}</h2>
+    <p class="text-sm text-gray-700">
+      {{ product.price | money | default: '22.22' }}
+    </p>
+    <a class="block" href="{{ product.url }}"> Shop Now <i class="ri-arrow-right-s-line"></i></a>
+  </div>
+</div>

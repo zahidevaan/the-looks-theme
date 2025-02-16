@@ -29,9 +29,8 @@
                     <h3>
                       <a href="{{ item.url }}">{{ item.product.title }}</a>
                     </h3>
-                    {% comment %}
-                      <span>{{ item.variant.title }}</span>
-                    {% endcomment %}
+                    <p class="text-sm font-light">Type: {{ item.variant.title }}</p>
+
                     <div class="ze-cart-drawer-quantity-selector">
                       <button class="ze-cart-drawer-quantity-selector-minus" type="button">
                         <i class="ri-subtract-fill"></i>

@@ -1,0 +1,7 @@
+<div class="traditional-variant-selector">
+  <select name="id" value="{{ product.selected_or_first_available_variant }}" class="border py-2 px-3 cursor-pointer">
+    {%- for variant in product.variants -%}
+      <option value="{{ variant.id }}">{{ variant.title }}</option>
+    {%- endfor -%}
+  </select>
+</div>

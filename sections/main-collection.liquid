@@ -1,4 +1,13 @@
-{%- for product in collection.products -%}
-  <img src="{{ product.featured_image | image_url }}" width="" height="" alt="{{ product.title }} image">
-  <h2>{{ product.title | link_to: product.url }}</h2>
-{%- endfor -%}
+<div class="container mx-auto py-10">
+  <div class="my-4">
+    <h2 class="text-2xl">
+      {{ collection.title }} -
+      <span>({{ collection.all_products_count }})</span>
+    </h2>
+  </div>
+  <div class=" w-full grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+    {%- for product in collection.products -%}
+      {%- render 'product-card-snippet', product: product -%}
+    {%- endfor -%}
+  </div>
+</div>

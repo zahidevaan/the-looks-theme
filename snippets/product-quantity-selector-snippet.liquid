@@ -1,0 +1,18 @@
+<div class=" w-fit flex items-center justify-between gap-4 my-3">
+  {% comment %} <span>Quntity:</span> {% endcomment %}
+  <div class=" w-fit flex items-center justify-between border rounded">
+    <span id="qtyMinus" class=" py-2 px-3 cursor-pointer inline-block"><i class="ri-subtract-fill"></i></span>
+    <input
+      id="qtyInput"
+      class="text-center w-[60px]"
+      type="number"
+      id="quantity"
+      name="quantity"
+      value="1"
+      min="1"
+    >
+    <span id="qtyPlus" class=" py-2 px-3 cursor-pointer inline-block"><i class="ri-add-line"></i></span>
+  </div>
+</div>
+
+<script src="{{ 'qtySelector.js' | asset_url }}" defer="defer"></script>
