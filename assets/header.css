@@ -100,8 +100,9 @@ span.ze-menu-close {
 }
 h3.ze-header-main-heading {
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 400;
+  color: #000;
 }
 .ze-menu-col {
   border-bottom: 1px solid lightgray;
@@ -111,7 +112,8 @@ h3.ze-header-main-heading {
 h3.ze-header-menu-heading {
   padding: 15px 20px;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 400;
+  color: #000;
 }
 
 ul.ze-header-menu-links {

@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-meadia">
-    <img class="aspect-[3/4]" src="{{ collection.featured_image | image_url }}" width="" height="" alt="">
+    <img class="aspect-[3/4] object-cover" src="{{ collection.featured_image | image_url }}" width="" height="" alt="">
   </div>
   <div class="card-content padding-top">
     <h2 class="text-md text-padding">{{ collection.title | default: 'Collection title' }}</h2>
