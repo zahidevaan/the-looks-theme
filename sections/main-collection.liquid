@@ -1,4 +1,4 @@
 {%- for product in collection.products -%}
-  {{ product.featured_image | image_url | image_tag }}
+  {{ product.featured_image | image_url: width: 200, height: 200, crop: 'top', format: '', pad_color: '' | image_tag }}
   <h2>{{ product.title | link_to: product.url }}</h2>
 {%- endfor -%}
