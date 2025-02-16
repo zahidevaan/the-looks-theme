@@ -1,3 +1,4 @@
 {%- for product in collection.products -%}
+  {{ product.featured_image | image_url | | image_tag: width: number/nil, height: number/nil, sizes: '100vw', widths: '', preload: boolean, alt: '', attribute: }}
   <h2>{{ product.title | link_to: product.url }}</h2>
 {%- endfor -%}
