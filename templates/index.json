@@ -18,19 +18,21 @@
         "button__url": ""
       }
     },
-    "featured-collection": {
+    "featured_collection_eTfQTM": {
       "type": "featured-collection",
       "settings": {
         "section__heading": "Featured Collection",
         "collections": [
           "zen",
-          "frontpage"
+          "vitality",
+          "precision",
+          "new-arrivals"
         ]
       }
     }
   },
   "order": [
     "hero",
-    "featured-collection"
+    "featured_collection_eTfQTM"
   ]
 }
