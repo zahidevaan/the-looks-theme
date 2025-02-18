@@ -13,24 +13,31 @@
                 {% when '@app' %}
                   {% render block %}
                 {%- when 'title' -%}
-                  <h2 class="text-2xl font-bold my-3">{{ product.title }}</h2>
+                  <h2 class="text-2xl font-bold my-3" {{ block.shopify_attributes }}>{{ product.title }}</h2>
                 {%- when 'vendor' -%}
-                  <h2 class="text-md font-light my-3">{{ block.settings.vendor }}</h2>
+                  <h2 class="text-md font-light my-3" {{ block.shopify_attributes }}>{{ block.settings.vendor }}</h2>
                 {%- when 'quantity' -%}
-                  {%- render 'product-quantity-selector-snippet', product: product -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- render 'product-quantity-selector-snippet', product: product -%}
+                  </div>
                 {%- when 'variants' -%}
-                  {%- if block.settings.variant_type == 'pills' -%}
-                    {%- render 'product-variants-pills', product: product -%}
-                  {%- endif -%}
-                  {%- if block.settings.variant_type == 'selector' -%}
-                    {%- render 'product-variants-selector', product: product -%}
-                  {%- endif -%}
+                  <div {{ block.shopify_attributes }}>
+                    {%- if block.settings.variant_type == 'pills' -%}
+                      {%- render 'product-variants-pills', product: product -%}
+                    {%- endif -%}
+                    {%- if block.settings.variant_type == 'selector' -%}
+                      {%- render 'product-variants-selector', product: product -%}
+                    {%- endif -%}
+                  </div>
+
                 {%- when 'price' -%}
-                  <h3 class="text-md font-light my-3">{{ product.price | money }}</h3>
+                  <h3 class="text-md font-light my-3 price" {{ block.shopify_attributes }}>
+                    {{ product.selected_or_first_available_variant.price | money }}
+                  </h3>
                 {%- when 'sku' -%}
-                  <span class="text-md font-light my-3">{{ product.sku }}</span>
+                  <span class="text-md font-light my-3" {{ block.shopify_attributes }}>{{ product.sku }}</span>
                 {%- when 'custom' -%}
-                  <div class="text-md font-light my-3">{{ block.settings.liquid }}</div>
+                  <div class="text-md font-light my-3" {{ block.shopify_attributes }}>{{ block.settings.liquid }}</div>
                 {% when 'buttons' %}
                   <button class="block w-full border my-3 py-2 px-3 cursor-pointer bg-black text-white hover:bg-amber-100 hover:text-black transition duration-300">
                     Add to cart
